@@ -140,36 +140,70 @@
     }
 
     .hero-guest {
-      margin-top: 28px;
+      margin-top: 36px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 4px;
+      gap: 10px;
     }
     .hero-guest-label {
       font-size: 9px;
-      letter-spacing: 3px;
+      letter-spacing: 5px;
       text-transform: uppercase;
-      color: rgba(255,255,255,.4);
+      color: rgba(255,255,255,.45);
     }
     .hero-guest-name {
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
-      font-size: 22px;
-      color: var(--gold-light);
-      letter-spacing: 1px;
-      border-bottom: 1px solid rgba(91,135,207,.4);
-      padding-bottom: 4px;
+      font-weight: 300;
+      font-size: clamp(30px, 7vw, 58px);
+      color: #a8ccf0;
+      letter-spacing: .5px;
+      line-height: 1.15;
+      text-align: center;
+      text-shadow: 0 2px 24px rgba(0,0,0,.55), 0 0 48px rgba(168,204,240,.35);
+      border-bottom: 1px solid rgba(168,204,240,.25);
+      padding-bottom: 12px;
+      max-width: min(520px, 90vw);
     }
     .hero-guest { display: none; }
     .hero-guest.visible { display: flex; }
     .hero-guest-admision {
       font-size: 9px;
-      letter-spacing: 3px;
+      letter-spacing: 4px;
       text-transform: uppercase;
-      color: rgba(255,255,255,.42);
+      color: rgba(255,255,255,.48);
       margin-top: 2px;
     }
+    .hero-guest-music-hint {
+      margin-top: 14px;
+      font-size: 9px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(168,204,240,.38);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .hero-play-btn {
+      margin-top: 10px;
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      border: 1px solid rgba(168,204,240,.3);
+      background: rgba(168,204,240,.08);
+      color: rgba(168,204,240,.7);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      transition: background .25s, border-color .25s, color .25s, transform .2s;
+      backdrop-filter: blur(4px);
+    }
+    .hero-play-btn:hover {
+      background: rgba(168,204,240,.18);
+      border-color: rgba(168,204,240,.6);
+      color: #a8ccf0;
+      transform: scale(1.08);
+    }
+    .hero-play-btn svg { margin-left: 2px; }
 
     .scroll-indicator {
       position: absolute;
@@ -592,46 +626,37 @@
       gap: 12px;
     }
     .spotify-player {
+      position: absolute;
+      bottom: 56px;
+      right: 0;
       width: 320px;
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0 16px 48px rgba(0,0,0,.45);
-      transform: scale(.92) translateY(12px);
       opacity: 0;
       pointer-events: none;
-      transition: opacity .35s cubic-bezier(.16,1,.3,1),
-                  transform .35s cubic-bezier(.16,1,.3,1);
-    }
-    .spotify-player.open {
-      opacity: 1;
-      transform: scale(1) translateY(0);
-      pointer-events: auto;
-    }
-    @media(max-width: 400px) {
-      .spotify-player { width: calc(100vw - 48px); }
     }
     .spotify-btn {
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      background: var(--gold);
-      border: none;
+      width: 42px;
+      height: 42px;
+      border-radius: 8px;
+      background: rgba(10, 22, 40, 0.45);
+      border: 1px solid rgba(168,204,240,.22);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 6px 24px rgba(42,82,152,.5);
-      transition: background .2s, transform .2s, box-shadow .2s;
+      box-shadow: 0 4px 20px rgba(0,0,0,.3);
+      transform: rotate(45deg);
+      transition: background .25s, border-color .25s, transform .2s, box-shadow .2s;
       flex-shrink: 0;
     }
     .spotify-btn:hover {
-      background: var(--olive-mid);
-      transform: scale(1.08);
-      box-shadow: 0 10px 32px rgba(42,82,152,.6);
+      background: rgba(42,82,152,.55);
+      border-color: rgba(168,204,240,.4);
+      transform: rotate(45deg) scale(1.1);
+      box-shadow: 0 6px 24px rgba(42,82,152,.4);
     }
-    .spotify-btn svg { display: block; }
-    /* nota musical pulsa cuando el player está abierto */
-    .spotify-btn.playing .note-icon { animation: notePulse 1.8s ease-in-out infinite; }
+    .spotify-btn svg { display: block; transform: rotate(-45deg); }
     @keyframes notePulse {
       0%,100% { transform: scale(1) rotate(-5deg); }
       50%      { transform: scale(1.18) rotate(5deg); }
@@ -741,8 +766,7 @@
     <span class="hero-tag hero-anim-1">con amor, te invitamos a nuestra boda</span>
 
     <h1 class="hero-names hero-anim-2">
-      Jordy Piedra
-      <em>& Merly Alcivar</em>
+      Jordy & Merly
     </h1>
 
     <p class="hero-date hero-anim-3">Sábado &nbsp;·&nbsp; 5 de Septiembre &nbsp;·&nbsp; 2026</p>
@@ -751,6 +775,14 @@
       <span class="hero-guest-label">Esta invitación es para</span>
       <span class="hero-guest-name" id="guestName"></span>
       <span class="hero-guest-admision" id="guestAdmision"></span>
+      <span class="hero-guest-music-hint">
+        <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+        escucha nuestra playlist
+      </span>
+      <button class="hero-play-btn" id="heroPlayBtn" aria-label="Reproducir playlist">
+        <svg class="icon-play" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="margin-left:2px"><polygon points="5,3 19,12 5,21"/></svg>
+        <svg class="icon-pause" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="display:none"><rect x="5" y="3" width="4" height="18"/><rect x="15" y="3" width="4" height="18"/></svg>
+      </button>
     </div>
   </div>
 
@@ -934,11 +966,11 @@
 
     <div class="qr-wrap" data-reveal="scale" data-delay="2">
       <div class="qr-canvas-box">
-        <canvas id="qrCanvas" width="200" height="200"></canvas>
+        <img id="qrCanvas" width="200" height="200" alt="QR WhatsApp" style="display:block;border-radius:6px;">
         <div class="qr-footer-bar"></div>
       </div>
       <p class="qr-hint">Escanea con la cámara de tu celular</p>
-      <a class="wa-btn" href="https://wa.me/593989987761" target="_blank" rel="noopener" data-reveal="up" data-delay="3">
+      <a class="wa-btn" href="https://wa.me/593989987761?text=%C2%A1Hola%20Jordy%20y%20Merly!%20%F0%9F%8E%8A%20Confirmo%20mi%20asistencia%20a%20su%20boda%20el%205%20de%20Septiembre%202026.%20%C2%A1Los%20queremos%20mucho!%20%F0%9F%92%99" target="_blank" rel="noopener" data-reveal="up" data-delay="3">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.107.549 4.09 1.508 5.815L0 24l6.335-1.487A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.003-1.366l-.36-.213-3.76.883.923-3.663-.234-.375A9.818 9.818 0 012.182 12C2.182 6.58 6.58 2.182 12 2.182S21.818 6.58 21.818 12 17.42 21.818 12 21.818z"/></svg>
         Abrir WhatsApp
       </a>
@@ -949,8 +981,6 @@
   </div>
 </div>
 
-<div id="qrHidden" style="position:absolute;left:-9999px;top:-9999px;visibility:hidden;width:200px;height:200px;overflow:hidden;"></div>
-
 <!-- ══ FOOTER ══ -->
 <footer>
   <p class="footer-names" data-reveal="up">Jordy <span>&</span> Merly</p>
@@ -959,7 +989,18 @@
   <p class="footer-love" data-reveal="up" data-delay="3">Con todo nuestro amor</p>
 </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<!-- ══ SPOTIFY FLOTANTE ══ -->
+<div class="spotify-fab" role="region" aria-label="Reproductor de música">
+  <div class="spotify-player" id="spotifyPlayer">
+    <div id="spotifyIframe"></div>
+  </div>
+  <button class="spotify-btn" id="spotifyBtn" aria-label="Reproducir música">
+    <svg class="icon-play" width="16" height="16" viewBox="0 0 24 24" fill="rgba(168,204,240,.9)" style="margin-left:2px"><polygon points="5,3 19,12 5,21"/></svg>
+    <svg class="icon-pause" width="16" height="16" viewBox="0 0 24 24" fill="rgba(168,204,240,.9)" style="display:none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+  </button>
+</div>
+
+<script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
 <script>
   /* ── Hero image + parallax ── */
@@ -1030,7 +1071,6 @@
   const urlP  = new URLSearchParams(location.search);
   const invId = urlP.get('inv');
   if (invId) {
-    console.log(invId)
     fetch('./invitados.yaml')
       .then(r => {
         if (!r.ok) throw new Error('YAML no encontrado');
@@ -1047,6 +1087,12 @@
               `Admisión · ${n} ${n === 1 ? 'persona' : 'personas'}`;
           }
           document.getElementById('guestBlock').classList.add('visible');
+
+          /* Actualizar botón WhatsApp con mensaje personalizado */
+          const msg = `¡Hola Jordy y Merly! 🎊 Soy ${guest.nombre} y confirmo mi asistencia a su boda el 5 de Septiembre 2026. ¡Los queremos mucho! 💙`;
+          const waUrl = `https://wa.me/${WA_PHONE}?text=${encodeURIComponent(msg)}`;
+          document.querySelectorAll('a.wa-btn, a[href*="wa.me"]').forEach(a => a.href = waUrl);
+          renderQR(waUrl);
         }
       })
       .catch(() => { /* falla silenciosa */ });
@@ -1056,44 +1102,17 @@
      QR — MÓDULOS CUADRADOS
           CORAZÓN RELLENO + J·M BLANCO
      ══════════════════════════════════════ */
-  const WA_URL = 'https://wa.me/593989987761';
-  const SZ     = 200;
-  const BLUE   = '#2a5298';
-
-  function renderQR() {
-    const tmp = document.getElementById('qrHidden');
-    tmp.innerHTML = '';
-    const qr = new QRCode(tmp, {
-      text:         WA_URL,
-      width:        SZ,
-      height:       SZ,
-      colorDark:    BLUE,
-      colorLight:   '#ffffff',
-      correctLevel: QRCode.CorrectLevel.L
-    });
-
-    setTimeout(() => {
-      const mc  = qr._oQRCode.getModuleCount();
-      const msz = SZ / mc;
-      const canvas = document.getElementById('qrCanvas');
-      const ctx    = canvas.getContext('2d');
-
-      ctx.fillStyle = 'white';
-      ctx.fillRect(0, 0, SZ, SZ);
-
-      for (let row = 0; row < mc; row++) {
-        for (let col = 0; col < mc; col++) {
-          if (qr._oQRCode.isDark(row, col)) {
-            ctx.fillStyle = BLUE;
-            ctx.fillRect(col * msz, row * msz, msz, msz);
-          }
-        }
-      }
-    }, 120);
+  const WA_PHONE = '593989987761';
+  const WA_URL   = `https://wa.me/${WA_PHONE}`;
+  function renderQR(url) {
+    const img = document.getElementById('qrCanvas');
+    if (!img) return;
+    const encoded = encodeURIComponent(url || WA_URL);
+    img.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&color=2a5298&bgcolor=ffffff&data=${encoded}`;
   }
 
   /* Init on load */
-  window.addEventListener('load', renderQR);
+  window.addEventListener('load', () => renderQR(WA_URL));
 
   /* ── Collage fly-in ── */
   const collageGrid = document.getElementById('collageGrid');
@@ -1106,36 +1125,59 @@
     }, { threshold: 0.12 }).observe(collageGrid);
   }
 
-  /* ── Spotify flotante ── */
+  /* ── Spotify flotante (IFrame API) ── */
   const spotifyBtn    = document.getElementById('spotifyBtn');
   const spotifyPlayer = document.getElementById('spotifyPlayer');
-  spotifyBtn.addEventListener('click', () => {
-    const isOpen = spotifyPlayer.classList.toggle('open');
-    spotifyBtn.classList.toggle('playing', isOpen);
-    spotifyBtn.setAttribute('aria-label', isOpen ? 'Cerrar música' : 'Reproducir música');
-  });
+  const heroPlayBtn   = document.getElementById('heroPlayBtn');
+  let   spotifyPlaying = false;
+  let   embedController = null;
+
+  function updateSpotifyIcons(play) {
+    [spotifyBtn, heroPlayBtn].forEach(btn => {
+      if (!btn) return;
+      btn.querySelector('.icon-play').style.display  = play ? 'none'  : 'block';
+      btn.querySelector('.icon-pause').style.display = play ? 'block' : 'none';
+      btn.setAttribute('aria-label', play ? 'Pausar música' : 'Reproducir música');
+    });
+  }
+
+  function toggleSpotify() {
+    spotifyPlaying = !spotifyPlaying;
+    updateSpotifyIcons(spotifyPlaying);
+    if (embedController) {
+      if (spotifyPlaying) embedController.play();
+      else                embedController.pause();
+    }
+  }
+
+  /* La API llama a esta función global cuando está lista */
+  window.onSpotifyIframeApiReady = (IFrameAPI) => {
+    IFrameAPI.createController(
+      document.getElementById('spotifyIframe'),
+      {
+        uri:    'spotify:playlist:25omsTLDOXORszzJH7GfDt',
+        width:  '100%',
+        height: '80',
+        theme:  0,
+      },
+      (controller) => {
+        embedController = controller;
+        /* Escucha eventos del player para mantener los íconos sincronizados */
+        controller.addListener('playback_update', (e) => {
+          const playing = !e.data.isPaused;
+          if (playing !== spotifyPlaying) {
+            spotifyPlaying = playing;
+            updateSpotifyIcons(playing);
+          }
+        });
+      }
+    );
+  };
+
+  spotifyBtn.addEventListener('click', toggleSpotify);
+  if (heroPlayBtn) heroPlayBtn.addEventListener('click', toggleSpotify);
 </script>
 
-<!-- ══ SPOTIFY FLOTANTE ══ -->
-<div class="spotify-fab" role="region" aria-label="Reproductor de música">
-  <div class="spotify-player" id="spotifyPlayer">
-    <iframe
-      src="https://open.spotify.com/embed/playlist/25omsTLDOXORszzJH7GfDt?utm_source=generator"
-      width="100%" height="352"
-      frameborder="0"
-      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-      loading="lazy"
-      style="display:block;"
-    ></iframe>
-  </div>
-  <button class="spotify-btn" id="spotifyBtn" aria-label="Reproducir música">
-    <svg class="note-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M9 18V5l12-2v13"/>
-      <circle cx="6" cy="18" r="3"/>
-      <circle cx="18" cy="16" r="3"/>
-    </svg>
-  </button>
-</div>
 
 </body>
 </html>

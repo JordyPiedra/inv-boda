@@ -60,8 +60,8 @@ invitados:
     
 
   # ── AMIGOS CERCANOS ─────────────────────────────
-  - id: "INV-005"
-    nombre: "Andrés Vásquez"
+  - id: "INVCOLJUAN"
+    nombre: "Juan Carlos"
     relacion: "Amigo novio"
     grupo: "Amigos"
     telefono: "+593 9X XXX XXXX"
