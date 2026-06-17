@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jordy & Merly – 5 de Septiembre 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    /* ─── RESET & BASE ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --gold:        #2a5298;   /* azul real – acento principal  */
+      --gold-light:  #5b87cf;   /* azul medio                    */
+      --gold-pale:   #e8f0fa;   /* azul muy pálido               */
+      --olive:       #0f2d52;   /* navy profundo – estructural   */
+      --olive-mid:   #1e4a7a;   /* navy medio                    */
+      --olive-light: #4a7ab5;   /* navy claro                    */
+      --olive-pale:  #dce8f5;   /* navy muy pálido               */
+      --cream:       #f4f7fc;   /* blanco frío                   */
+      --dark:        #0a1628;   /* casi negro con tono azul      */
+      --mid:         #4a5d78;   /* gris-azul texto               */
+      --white:       #ffffff;
+    }
+
+    body {
+      background: var(--cream);
+      font-family: 'Inter', sans-serif;
+      color: var(--dark);
+      overflow-x: hidden;
+    }
+
+    /* ─── SCROLL ANIMATIONS ─── */
+    [data-reveal] {
+      opacity: 0;
+      filter: blur(5px);
+      transition: opacity 1.1s cubic-bezier(.16,1,.3,1),
+                  transform 1.1s cubic-bezier(.16,1,.3,1),
+                  filter 1.1s cubic-bezier(.16,1,.3,1);
+    }
+    [data-reveal="up"]    { transform: translateY(44px); }
+    [data-reveal="down"]  { transform: translateY(-30px); }
+    [data-reveal="left"]  { transform: translateX(56px); }
+    [data-reveal="right"] { transform: translateX(-56px); }
+    [data-reveal="scale"] { transform: scale(.93); }
+    [data-reveal="fade"]  { transform: none; }
+    [data-reveal].revealed { opacity: 1; transform: none; filter: blur(0); }
+    [data-delay="1"] { transition-delay: .12s; }
+    [data-delay="2"] { transition-delay: .26s; }
+    [data-delay="3"] { transition-delay: .42s; }
+    [data-delay="4"] { transition-delay: .58s; }
+    [data-delay="5"] { transition-delay: .74s; }
+
+    /* ─── HERO ENTRANCE ANIMATION ─── */
+    @keyframes heroFadeUp {
+      from { opacity: 0; transform: translateY(30px); filter: blur(10px); }
+      to   { opacity: 1; transform: none;              filter: blur(0);    }
+    }
+    .hero-anim-1 { animation: heroFadeUp 1.1s cubic-bezier(.16,1,.3,1) 0.25s both; }
+    .hero-anim-2 { animation: heroFadeUp 1.2s cubic-bezier(.16,1,.3,1) 0.48s both; }
+    .hero-anim-3 { animation: heroFadeUp 1.1s cubic-bezier(.16,1,.3,1) 0.72s both; }
+    .hero-anim-4 { animation: heroFadeUp 1.1s cubic-bezier(.16,1,.3,1) 0.92s both; }
+    .hero-scroll-anim { animation: heroFadeUp 1s cubic-bezier(.16,1,.3,1) 1.15s both; }
+
+    /* ─── HERO ─── */
+    .hero {
+      position: relative;
+      height: 100svh;
+      min-height: 600px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      padding-bottom: 80px;
+      overflow: hidden;
+    }
+
+    .hero-img {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1699567806583-2d82e1ec2b66?auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center 40%;
+      transform: scale(1.06);
+      transition: transform 8s ease-out;
+    }
+    .hero-img.loaded { transform: scale(1); }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(10,22,40,.20) 0%,
+        rgba(10,22,40,.38) 40%,
+        rgba(10,22,40,.75) 80%,
+        rgba(10,22,40,.90) 100%
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      text-align: center;
+      color: white;
+      padding: 0 24px;
+    }
+
+    .hero-tag {
+      font-size: 10px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.68);
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .hero-names {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(58px, 13vw, 110px);
+      font-weight: 300;
+      line-height: .95;
+      color: white;
+      letter-spacing: -2px;
+    }
+    .hero-names em {
+      display: block;
+      font-style: italic;
+      font-size: .42em;
+      color: rgba(255, 255, 255, 0.92);
+      text-shadow: 0 0 32px rgba(91, 135, 207, 0.65), 0 2px 12px rgba(0,0,0,0.4);
+      letter-spacing: 8px;
+      line-height: 2.2;
+      font-weight: 300;
+    }
+
+    .hero-date {
+      margin-top: 28px;
+      font-size: 11px;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.75);
+    }
+
+    .hero-guest {
+      margin-top: 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+    .hero-guest-label {
+      font-size: 9px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.4);
+    }
+    .hero-guest-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 22px;
+      color: var(--gold-light);
+      letter-spacing: 1px;
+      border-bottom: 1px solid rgba(91,135,207,.4);
+      padding-bottom: 4px;
+    }
+    .hero-guest { display: none; }
+    .hero-guest.visible { display: flex; }
+    .hero-guest-admision {
+      font-size: 9px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.42);
+      margin-top: 2px;
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,.4);
+    }
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, rgba(255,255,255,.4), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+    @keyframes scrollPulse {
+      0%,100% { opacity: .4; transform: scaleY(1); }
+      50% { opacity: .9; transform: scaleY(1.15); }
+    }
+    .scroll-text { font-size: 8px; letter-spacing: 3px; text-transform: uppercase; }
+
+    /* ─── THIN ACCENT BAR ─── */
+    .accent-bar {
+      height: 3px;
+      background: linear-gradient(90deg, var(--olive) 0%, var(--gold) 50%, var(--olive) 100%);
+    }
+
+    /* ─── SECTIONS ─── */
+    .section {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 96px 32px;
+      text-align: center;
+    }
+    .section-sm { padding: 64px 32px; }
+
+    .label {
+      font-size: 10px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+      display: block;
+    }
+    .label-gold { color: var(--gold); }
+
+    .display {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(32px, 6vw, 54px);
+      font-weight: 300;
+      line-height: 1.15;
+      margin-bottom: 24px;
+    }
+    .display em { font-style: italic; color: var(--olive); }
+    .display-gold em { color: var(--gold); }
+
+    .body-text {
+      font-size: 15px;
+      line-height: 1.9;
+      color: var(--mid);
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    /* ─── DIVIDER ─── */
+    .rule {
+      width: 48px;
+      height: 1px;
+      background: var(--gold-light);
+      margin: 28px auto;
+    }
+    .rule-olive { background: var(--olive-light); }
+
+    /* ─── COUNTDOWN ─── */
+    .countdown-wrap {
+      background: var(--dark);
+      padding: 72px 32px;
+      text-align: center;
+    }
+    .countdown-wrap .label { color: rgba(255,255,255,0.72); }
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 2px;
+      margin-top: 32px;
+      flex-wrap: wrap;
+    }
+    .count-block {
+      min-width: 88px;
+      padding: 0 12px;
+      border-right: 1px solid rgba(255,255,255,.07);
+      text-align: center;
+    }
+    .count-block:last-child { border-right: none; }
+    .count-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(48px, 8vw, 72px);
+      font-weight: 300;
+      color: white;
+      display: block;
+      line-height: 1;
+    }
+    .count-unit {
+      font-size: 9px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.3);
+      margin-top: 8px;
+      display: block;
+    }
+
+    /* ─── EVENTS ─── */
+    .events-section {
+      background: var(--white);
+    }
+    .events-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: rgba(0,0,0,.06);
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    @media(max-width: 560px) { .events-grid { grid-template-columns: 1fr; } }
+
+    .event-card {
+      background: var(--white);
+      padding: 48px 36px;
+      position: relative;
+      overflow: hidden;
+    }
+    .event-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 36px; right: 36px;
+      height: 2px;
+      background: var(--olive);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .5s ease;
+    }
+    .event-card:hover::after { transform: scaleX(1); }
+
+    .event-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 64px;
+      font-weight: 300;
+      color: var(--olive-pale);
+      line-height: 1;
+      position: absolute;
+      top: 24px; right: 28px;
+    }
+    .event-chip {
+      display: inline-block;
+      font-size: 8px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--olive);
+      border: 1px solid var(--olive-light);
+      padding: 3px 10px;
+      margin-bottom: 16px;
+    }
+    .event-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+    .event-info {
+      font-size: 13px;
+      color: var(--mid);
+      line-height: 1.8;
+    }
+    .event-time {
+      display: inline-block;
+      margin-top: 18px;
+      font-size: 11px;
+      letter-spacing: 3px;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+    .event-map {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 10px;
+      font-size: 11px;
+      color: var(--olive);
+      text-decoration: none;
+      letter-spacing: .5px;
+      transition: color .2s;
+    }
+    .event-map:hover { color: var(--olive-light); }
+    .event-map svg { flex-shrink: 0; }
+
+    /* ─── PHOTO SECTION ─── */
+    .photo-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 520px;
+    }
+    @media(max-width: 640px) { .photo-section { grid-template-columns: 1fr; } }
+
+    .photo-img {
+      position: relative;
+      overflow: hidden;
+      min-height: 380px;
+    }
+    .photo-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transform: scale(1.04);
+      transition: transform 6s ease;
+    }
+    .photo-img:hover img { transform: scale(1); }
+
+    .photo-text {
+      background: var(--olive);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 64px 48px;
+      color: white;
+    }
+    .photo-text .label { color: rgba(255,255,255,.62); }
+    .photo-text .display { color: white; }
+    .photo-text .display em { color: var(--gold-light); }
+    .photo-text .body-text { color: rgba(255,255,255,.65); margin: 0; }
+    .photo-text .rule { background: rgba(255,255,255,.2); margin: 24px 0; }
+
+    /* ─── DRESSCODE ─── */
+    .dresscode-section {
+      background: var(--cream);
+    }
+    .dresscode-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      max-width: 440px;
+      margin: 32px auto 0;
+    }
+    @media(max-width: 460px) { .dresscode-grid { grid-template-columns: 1fr; } }
+    .dc-card {
+      border: 1px solid rgba(0,0,0,.08);
+      padding: 20px 16px;
+      background: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      position: relative;
+    }
+    .dc-swatch {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      box-shadow: 0 2px 8px rgba(0,0,0,.12);
+    }
+    .swatch-white { background: #f0ede8; border: 1px solid #ddd; }
+    .swatch-red   { background: #b52a2a; }
+    .swatch-black { background: #111; }
+    .dc-name { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--mid); }
+    .dc-x {
+      position: absolute;
+      top: 7px; right: 9px;
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      background: #e53e3e;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .dc-x::before, .dc-x::after {
+      content: '';
+      position: absolute;
+      width: 8px; height: 1.5px;
+      background: white;
+    }
+    .dc-x::before { transform: rotate(45deg); }
+    .dc-x::after  { transform: rotate(-45deg); }
+
+    .dress-note {
+      margin-top: 20px;
+      font-size: 12px;
+      color: var(--mid);
+      letter-spacing: .5px;
+    }
+
+    /* ─── ADULTS ONLY ─── */
+    .adults-section { background: var(--white); }
+    .adults-note {
+      text-align: center;
+      padding: 20px 32px 56px;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+    .adults-note p {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 15px;
+      color: var(--mid);
+      opacity: .65;
+      line-height: 1.7;
+    }
+
+    /* ─── RSVP ─── */
+    .rsvp-section { background: var(--gold-pale); }
+    .qr-wrap {
+      position: relative;
+      width: 200px;
+      margin: 36px auto 8px;
+    }
+    .qr-canvas-box {
+      width: 200px; height: 200px;
+      background: white;
+      border: 1px solid rgba(42,82,152,.2);
+      box-shadow: 0 8px 32px rgba(42,82,152,.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    #qrCanvas { display: block; }
+    .qr-footer-bar {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--olive), var(--gold));
+    }
+    .qr-hint {
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      color: var(--mid);
+      margin-top: 8px;
+      opacity: .7;
+    }
+    .rsvp-deadline {
+      display: inline-block;
+      margin-top: 14px;
+      font-size: 11px;
+      letter-spacing: 3px;
+      color: var(--gold);
+      border-bottom: 1px solid var(--gold-light);
+      padding-bottom: 3px;
+      text-transform: uppercase;
+    }
+    .rsvp-note { font-size: 13px; color: var(--mid); }
+    .wa-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-top: 14px;
+      padding: 8px 20px;
+      border: 1px solid rgba(42,82,152,.25);
+      border-radius: 2px;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+      transition: background .25s, border-color .25s;
+    }
+    .wa-btn:hover {
+      background: rgba(42,82,152,.06);
+      border-color: rgba(42,82,152,.5);
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--dark);
+      padding: 64px 32px;
+      text-align: center;
+    }
+    .footer-names {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 42px;
+      font-weight: 300;
+      font-style: italic;
+      color: white;
+      letter-spacing: -1px;
+    }
+    .footer-names span { color: var(--gold-light); }
+    .footer-date {
+      margin-top: 16px;
+      font-size: 10px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.3);
+    }
+    .footer-rule {
+      width: 40px; height: 1px;
+      background: var(--olive-mid);
+      margin: 24px auto;
+    }
+    .footer-love {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15px;
+      font-style: italic;
+      color: rgba(255,255,255,.35);
+    }
+
+    /* ─── SPOTIFY FLOTANTE ─── */
+    .spotify-fab {
+      position: fixed;
+      bottom: 28px;
+      right: 24px;
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 12px;
+    }
+    .spotify-player {
+      width: 320px;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 16px 48px rgba(0,0,0,.45);
+      transform: scale(.92) translateY(12px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .35s cubic-bezier(.16,1,.3,1),
+                  transform .35s cubic-bezier(.16,1,.3,1);
+    }
+    .spotify-player.open {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+      pointer-events: auto;
+    }
+    @media(max-width: 400px) {
+      .spotify-player { width: calc(100vw - 48px); }
+    }
+    .spotify-btn {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--gold);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 24px rgba(42,82,152,.5);
+      transition: background .2s, transform .2s, box-shadow .2s;
+      flex-shrink: 0;
+    }
+    .spotify-btn:hover {
+      background: var(--olive-mid);
+      transform: scale(1.08);
+      box-shadow: 0 10px 32px rgba(42,82,152,.6);
+    }
+    .spotify-btn svg { display: block; }
+    /* nota musical pulsa cuando el player está abierto */
+    .spotify-btn.playing .note-icon { animation: notePulse 1.8s ease-in-out infinite; }
+    @keyframes notePulse {
+      0%,100% { transform: scale(1) rotate(-5deg); }
+      50%      { transform: scale(1.18) rotate(5deg); }
+    }
+
+    /* ─── COLLAGE BOLIVIA ─── */
+    .collage-wrap {
+      background: var(--dark);
+      padding: 88px 32px 100px;
+      overflow: hidden;
+    }
+    .collage-intro {
+      text-align: center;
+      max-width: 520px;
+      margin: 0 auto 60px;
+    }
+    .collage-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+    @media(max-width: 480px) {
+      .collage-grid { gap: 12px; max-width: 320px; }
+    }
+
+    /* Polaroid-style wrapper */
+    .collage-item {
+      background: white;
+      padding: 8px 8px 30px;
+      box-shadow: 0 12px 44px rgba(0,0,0,.55), 0 2px 8px rgba(0,0,0,.3);
+      position: relative;
+      opacity: 0;               /* oculto hasta que el observer dispare */
+      will-change: transform, opacity;
+      transition: transform .5s cubic-bezier(.16,1,.3,1),
+                  box-shadow .5s cubic-bezier(.16,1,.3,1);
+    }
+    .collage-item img {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      display: block;
+    }
+    .collage-caption {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 11px;
+      color: #888;
+      text-align: center;
+      padding-top: 8px;
+      letter-spacing: .5px;
+    }
+
+    /* ── Keyframes: cada polaroid vuela desde su esquina ── */
+    @keyframes flyIn1 {
+      from { opacity:0; filter:blur(6px); transform: translate(-80px,-40px) rotate(-20deg) scale(.88); }
+      to   { opacity:1; filter:blur(0);   transform: rotate(-2.4deg) scale(1); }
+    }
+    @keyframes flyIn2 {
+      from { opacity:0; filter:blur(6px); transform: translate( 80px,-40px) rotate( 20deg) scale(.88); }
+      to   { opacity:1; filter:blur(0);   transform: rotate( 2deg)  scale(1); }
+    }
+    @keyframes flyIn3 {
+      from { opacity:0; filter:blur(6px); transform: translate(-80px, 60px) rotate( 18deg) scale(.88); }
+      to   { opacity:1; filter:blur(0);   transform: rotate( 1.8deg) scale(1); }
+    }
+    @keyframes flyIn4 {
+      from { opacity:0; filter:blur(6px); transform: translate( 80px, 60px) rotate(-18deg) scale(.88); }
+      to   { opacity:1; filter:blur(0);   transform: rotate(-1.6deg) scale(1); }
+    }
+
+    /* Rotaciones finales estáticas (antes de animar) */
+    .ci-1 { transform: rotate(-2.4deg); }
+    .ci-2 { transform: rotate(2deg); }
+    .ci-3 { transform: rotate(1.8deg); }
+    .ci-4 { transform: rotate(-1.6deg); }
+
+    /* Disparo de animaciones cuando .collage-grid recibe .animate */
+    .collage-grid.animate .ci-1 { animation: flyIn1 .9s cubic-bezier(.16,1,.3,1) 0s    both; }
+    .collage-grid.animate .ci-2 { animation: flyIn2 .9s cubic-bezier(.16,1,.3,1) .2s   both; }
+    .collage-grid.animate .ci-3 { animation: flyIn3 .9s cubic-bezier(.16,1,.3,1) .38s  both; }
+    .collage-grid.animate .ci-4 { animation: flyIn4 .9s cubic-bezier(.16,1,.3,1) .56s  both; }
+
+    /* Hover: endereza y escala — anula la animación sin parpadeo */
+    .collage-item:hover {
+      animation: none !important;
+      transform: rotate(0deg) scale(1.05) !important;
+      box-shadow: 0 22px 60px rgba(0,0,0,.72);
+      z-index: 2;
+      opacity: 1 !important;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ HERO ══ -->
+<div class="hero">
+  <div class="hero-img" id="heroImg"></div>
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <span class="hero-tag hero-anim-1">con amor, te invitamos a nuestra boda</span>
+
+    <h1 class="hero-names hero-anim-2">
+      Jordy Piedra
+      <em>& Merly Alcivar</em>
+    </h1>
+
+    <p class="hero-date hero-anim-3">Sábado &nbsp;·&nbsp; 5 de Septiembre &nbsp;·&nbsp; 2026</p>
+
+    <div class="hero-guest hero-anim-4" id="guestBlock">
+      <span class="hero-guest-label">Esta invitación es para</span>
+      <span class="hero-guest-name" id="guestName"></span>
+      <span class="hero-guest-admision" id="guestAdmision"></span>
+    </div>
+  </div>
+
+  <div class="scroll-indicator hero-scroll-anim">
+    <div class="scroll-line"></div>
+  </div>
+</div>
+
+<div class="accent-bar"></div>
+
+<!-- ══ MENSAJE ══ -->
+<div style="background: var(--white);">
+  <div class="section">
+    <span class="label" data-reveal="up">✦ un momento especial</span>
+    <h2 class="display display-gold" data-reveal="up" data-delay="1">
+      Queremos que estés<br/><em>a nuestro lado</em>
+    </h2>
+    <div class="rule" data-reveal="scale" data-delay="2"></div>
+    <p class="body-text" data-reveal="up" data-delay="3">
+      Hemos soñado con este día y no podríamos imaginarlo sin las personas
+      que más amamos a nuestro lado. Tu presencia no es solo un honor para
+      nosotros — es parte esencial de la felicidad que queremos celebrar.<br/><br/>
+      Cada uno de ustedes ocupa un lugar muy especial en nuestros corazones,
+      y queremos que lo sientan profundamente ese día.
+    </p>
+  </div>
+</div>
+
+<!-- ══ COUNTDOWN ══ -->
+<div class="countdown-wrap">
+  <span class="label" data-reveal="up">✦ faltan para el gran día</span>
+  <div class="countdown" id="countdown">
+    <div class="count-block" data-reveal="up" data-delay="1">
+      <span class="count-num" id="cd-days">–</span>
+      <span class="count-unit">días</span>
+    </div>
+    <div class="count-block" data-reveal="up" data-delay="2">
+      <span class="count-num" id="cd-hours">–</span>
+      <span class="count-unit">horas</span>
+    </div>
+    <div class="count-block" data-reveal="up" data-delay="3">
+      <span class="count-num" id="cd-min">–</span>
+      <span class="count-unit">minutos</span>
+    </div>
+    <div class="count-block" data-reveal="up" data-delay="4">
+      <span class="count-num" id="cd-sec">–</span>
+      <span class="count-unit">segundos</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══ COLLAGE BOLIVIA ══ -->
+<div class="accent-bar"></div>
+<div class="collage-wrap">
+
+  <div class="collage-intro">
+    <span class="label" style="color:rgba(255,255,255,.5);" data-reveal="up">✦ nuestra historia</span>
+    <h2 class="display" style="color:white; font-size:clamp(28px,5vw,50px);" data-reveal="up" data-delay="1">
+      La travesía por <em style="color:var(--gold-light);">Bolivia</em>
+    </h2>
+    <div class="rule" style="background:rgba(255,255,255,.15); margin:24px auto;" data-reveal="scale" data-delay="2"></div>
+    <p class="body-text" style="color:rgba(255,255,255,.52); font-size:13.5px; line-height:1.8;" data-reveal="up" data-delay="3">
+      Entre las alturas de La Paz y el infinito del Salar de Uyuni,<br/>
+      nació la pregunta más importante de nuestras vidas.
+    </p>
+  </div>
+
+  <div class="collage-grid" id="collageGrid">
+    <div class="collage-item ci-1">
+      <img src="collage1.JPG" alt="La Paz — el compromiso" loading="lazy"/>
+      <div class="collage-caption">La Paz · El compromiso</div>
+    </div>
+    <div class="collage-item ci-2">
+      <img src="collage2.JPG" alt="Salar de Uyuni — atardecer" loading="lazy"/>
+      <div class="collage-caption">Uyuni · Atardecer</div>
+    </div>
+    <div class="collage-item ci-3">
+      <img src="collage3.JPG" alt="Salar de Uyuni — la pedida" loading="lazy"/>
+      <div class="collage-caption">Uyuni · El anillo</div>
+    </div>
+    <div class="collage-item ci-4">
+      <img src="collage4.JPG" alt="Laberinto de Sal — Bolivia" loading="lazy"/>
+      <div class="collage-caption">Hotel de Sal · Bolivia</div>
+    </div>
+  </div>
+</div>
+<div class="accent-bar"></div>
+
+<!-- ══ EVENTOS ══ -->
+<div class="events-section">
+  <div class="section section-sm">
+    <span class="label" data-reveal="up">✦ programa del día</span>
+    <h2 class="display" data-reveal="up" data-delay="1">El <em>gran día</em></h2>
+  </div>
+
+  <div class="events-grid">
+    <div class="event-card" data-reveal="left">
+      <span class="event-num">01</span>
+      <div class="event-chip">Ceremonia</div>
+      <h3 class="event-name">Iglesia Santísima Trinidad</h3>
+      <p class="event-info">Santo Domingo<br/>Ecuador</p>
+      <span class="event-time">3:00 pm</span>
+      <a class="event-map" href="https://maps.app.goo.gl/41gJNHGsvjfH1Lca7" target="_blank" rel="noopener">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        Ver en Maps
+      </a>
+    </div>
+
+    <div class="event-card" data-reveal="right">
+      <span class="event-num">02</span>
+      <div class="event-chip">Recepción</div>
+      
+      <h3 class="event-name">Quinta Rey David</h3>
+      <p class="event-info">Santo Domingo<br/>Ecuador</p>
+            <span class="event-time">5:00 pm</span>
+
+      <a class="event-map" href="https://maps.app.goo.gl/uTi692CVU9wPLGy98" target="_blank" rel="noopener">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        Ver en Maps
+      </a>
+    </div>
+  </div>
+  <div style="padding-bottom: 72px;"></div>
+</div>
+
+<!-- ══ FOTO + DRESSCODE ══ -->
+<div class="photo-section" data-reveal="fade">
+  <div class="photo-img">
+    <img
+      src="https://images.unsplash.com/photo-1758810744028-689670b0877c?auto=format&fit=crop&w=900&q=80"
+      alt="Decoración de boda"
+      loading="lazy"
+    />
+  </div>
+  <div class="photo-text">
+    <span class="label" data-reveal="right">✦ código de vestimenta</span>
+    <h2 class="display" style="font-size: clamp(28px, 4vw, 40px);" data-reveal="right" data-delay="1">
+      Luce tu <em>mejor versión</em>
+    </h2>
+    <div class="rule" data-reveal="right" data-delay="2"></div>
+    <p class="body-text" style="font-size:14px;" data-reveal="right" data-delay="3">
+      Queremos que te veas tan increíble como te sentirás ese día.<br/><br/>
+      Para las damas, por favor evitar estos colores:
+    </p>
+    <div class="dresscode-grid" data-reveal="up" data-delay="4">
+      <div class="dc-card">
+        <div class="dc-x"></div>
+        <div class="dc-swatch swatch-white"></div>
+        <span class="dc-name">Blanco</span>
+      </div>
+      <div class="dc-card">
+        <div class="dc-x"></div>
+        <div class="dc-swatch swatch-red"></div>
+        <span class="dc-name">Rojo</span>
+      </div>
+      <div class="dc-card">
+        <div class="dc-x"></div>
+        <div class="dc-swatch swatch-black"></div>
+        <span class="dc-name">Negro</span>
+      </div>
+    </div>
+    <p class="dress-note" style="color:rgba(255,255,255,.4); margin-top:16px; font-size:11px;" data-reveal="up" data-delay="5">Solo para damas · Gracias por entender 🤍</p>
+    <div class="rule" style="background:rgba(255,255,255,.12); margin:28px 0 20px;" data-reveal="up" data-delay="5"></div>
+    <p class="body-text" style="font-size:13px; color:rgba(255,255,255,.52); font-style:italic; line-height:1.8; margin:0;" data-reveal="up" data-delay="5">
+      Y con mucho cariño les contamos que esta celebración<br/>
+      es exclusiva para adultos 🥂<br/>
+      <span style="font-size:11px; opacity:.75;">Los peques los amamos con todo el corazón,<br/>pero este día queremos verlos a ustedes bailar sin límites.</span>
+    </p>
+  </div>
+</div>
+
+<!-- ══ RSVP ══ -->
+<div class="rsvp-section">
+  <div class="section">
+    <span class="label label-gold" data-reveal="up">✦ confirma tu asistencia</span>
+    <h2 class="display" data-reveal="up" data-delay="1">¿Nos <em>acompañas?</em></h2>
+    <div class="rule" data-reveal="scale" data-delay="2"></div>
+    <p class="rsvp-note" data-reveal="up" data-delay="3">
+    Tu confirmación es muy importante para nosotros 💙
+    </p>
+
+    <div class="qr-wrap" data-reveal="scale" data-delay="2">
+      <div class="qr-canvas-box">
+        <canvas id="qrCanvas" width="200" height="200"></canvas>
+        <div class="qr-footer-bar"></div>
+      </div>
+      <p class="qr-hint">Escanea con la cámara de tu celular</p>
+      <a class="wa-btn" href="https://wa.me/593989987761" target="_blank" rel="noopener" data-reveal="up" data-delay="3">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.107.549 4.09 1.508 5.815L0 24l6.335-1.487A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.003-1.366l-.36-.213-3.76.883.923-3.663-.234-.375A9.818 9.818 0 012.182 12C2.182 6.58 6.58 2.182 12 2.182S21.818 6.58 21.818 12 17.42 21.818 12 21.818z"/></svg>
+        Abrir WhatsApp
+      </a>
+    </div>
+
+    <p class="rsvp-note" data-reveal="up" data-delay="3">Confirma antes del</p>
+    <span class="rsvp-deadline" data-reveal="up" data-delay="4">20 de Agosto 2026</span>
+  </div>
+</div>
+
+<div id="qrHidden" style="position:absolute;left:-9999px;top:-9999px;visibility:hidden;width:200px;height:200px;overflow:hidden;"></div>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <p class="footer-names" data-reveal="up">Jordy <span>&</span> Merly</p>
+  <div class="footer-rule" data-reveal="scale" data-delay="1"></div>
+  <p class="footer-date" data-reveal="up" data-delay="2">5 · IX · 2026 &nbsp;·&nbsp; Ecuador</p>
+  <p class="footer-love" data-reveal="up" data-delay="3">Con todo nuestro amor</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+<script>
+  /* ── Hero image load ── */
+  const heroImg = document.getElementById('heroImg');
+  const heroSrc = 'IMG_4140.JPG?auto=format&fit=crop&w=1920&q=80';
+  heroImg.style.backgroundImage = `url('${heroSrc}')`;
+  const heroPreload = new Image();
+  heroPreload.onload = () => heroImg.classList.add('loaded');
+  heroPreload.src = heroSrc;
+
+  /* ── Scroll reveal ── */
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); io.unobserve(e.target); } });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
+
+  /* ── Countdown ── */
+  const wTarget = new Date('2026-09-05T15:00:00');
+  function tick() {
+    const diff = wTarget - Date.now();
+    if (diff <= 0) {
+      document.getElementById('countdown').innerHTML =
+        '<p style="font-family:\'Cormorant Garamond\',serif;font-size:2.2rem;font-style:italic;color:white;">¡Hoy es el gran día! 🎊</p>';
+      return;
+    }
+    const pad = n => String(n).padStart(2, '0');
+    document.getElementById('cd-days').textContent  = pad(Math.floor(diff / 86400000));
+    document.getElementById('cd-hours').textContent = pad(Math.floor((diff % 86400000) / 3600000));
+    document.getElementById('cd-min').textContent   = pad(Math.floor((diff % 3600000) / 60000));
+    document.getElementById('cd-sec').textContent   = pad(Math.floor((diff % 60000) / 1000));
+  }
+  tick(); setInterval(tick, 1000);
+
+  /* ── Cargar nombre desde invitados.yaml usando ?inv=INV-001 ── */
+  const urlP  = new URLSearchParams(location.search);
+  const invId = urlP.get('inv');
+  if (invId) {
+    console.log(invId)
+    fetch('./invitados.yaml')
+      .then(r => {
+        if (!r.ok) throw new Error('YAML no encontrado');
+        return r.text();
+      })
+      .then(text => {
+        const data  = jsyaml.load(text);
+        const guest = (data.invitados || []).find(g => g.id === invId);
+        if (guest) {
+          document.getElementById('guestName').textContent = guest.nombre;
+          if (guest.admision) {
+            const n = guest.admision;
+            document.getElementById('guestAdmision').textContent =
+              `Admisión · ${n} ${n === 1 ? 'persona' : 'personas'}`;
+          }
+          document.getElementById('guestBlock').classList.add('visible');
+        }
+      })
+      .catch(() => { /* falla silenciosa */ });
+  }
+
+  /* ══════════════════════════════════════
+     QR — MÓDULOS CUADRADOS
+          CORAZÓN RELLENO + J·M BLANCO
+     ══════════════════════════════════════ */
+  const WA_URL = 'https://wa.me/593989987761';
+  const SZ     = 200;
+  const BLUE   = '#2a5298';
+
+  function renderQR() {
+    const tmp = document.getElementById('qrHidden');
+    tmp.innerHTML = '';
+    const qr = new QRCode(tmp, {
+      text:         WA_URL,
+      width:        SZ,
+      height:       SZ,
+      colorDark:    BLUE,
+      colorLight:   '#ffffff',
+      correctLevel: QRCode.CorrectLevel.L
+    });
+
+    setTimeout(() => {
+      const mc  = qr._oQRCode.getModuleCount();
+      const msz = SZ / mc;
+      const canvas = document.getElementById('qrCanvas');
+      const ctx    = canvas.getContext('2d');
+
+      ctx.fillStyle = 'white';
+      ctx.fillRect(0, 0, SZ, SZ);
+
+      for (let row = 0; row < mc; row++) {
+        for (let col = 0; col < mc; col++) {
+          if (qr._oQRCode.isDark(row, col)) {
+            ctx.fillStyle = BLUE;
+            ctx.fillRect(col * msz, row * msz, msz, msz);
+          }
+        }
+      }
+    }, 120);
+  }
+
+  /* Init on load */
+  window.addEventListener('load', renderQR);
+
+  /* ── Collage fly-in ── */
+  const collageGrid = document.getElementById('collageGrid');
+  if (collageGrid) {
+    new IntersectionObserver(([entry], obs) => {
+      if (entry.isIntersecting) {
+        collageGrid.classList.add('animate');
+        obs.disconnect();
+      }
+    }, { threshold: 0.12 }).observe(collageGrid);
+  }
+
+  /* ── Spotify flotante ── */
+  const spotifyBtn    = document.getElementById('spotifyBtn');
+  const spotifyPlayer = document.getElementById('spotifyPlayer');
+  spotifyBtn.addEventListener('click', () => {
+    const isOpen = spotifyPlayer.classList.toggle('open');
+    spotifyBtn.classList.toggle('playing', isOpen);
+    spotifyBtn.setAttribute('aria-label', isOpen ? 'Cerrar música' : 'Reproducir música');
+  });
+</script>
+
+<!-- ══ SPOTIFY FLOTANTE ══ -->
+<div class="spotify-fab" role="region" aria-label="Reproductor de música">
+  <div class="spotify-player" id="spotifyPlayer">
+    <iframe
+      src="https://open.spotify.com/embed/playlist/25omsTLDOXORszzJH7GfDt?utm_source=generator"
+      width="100%" height="352"
+      frameborder="0"
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+      loading="lazy"
+      style="display:block;"
+    ></iframe>
+  </div>
+  <button class="spotify-btn" id="spotifyBtn" aria-label="Reproducir música">
+    <svg class="note-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M9 18V5l12-2v13"/>
+      <circle cx="6" cy="18" r="3"/>
+      <circle cx="18" cy="16" r="3"/>
+    </svg>
+  </button>
+</div>
+
+</body>
+</html>

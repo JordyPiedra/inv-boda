@@ -1,0 +1,110 @@
+boda:
+  novios: "Jordy Piedra & Merly Alcivar"
+  fecha: "2026-09-05"
+  hora: "15:00"
+
+invitados:
+
+  # ── FAMILIA PIEDRA ──────────────────────────────
+  - id: "INV-001"
+    nombre: "Carlos Piedra"
+    relacion: "Familia novio"
+    grupo: "Familia Piedra"
+    telefono: "+593 9X XXX XXXX"
+    mesa: 1
+    admision: 2                # número de personas incluidas
+    confirmado: false
+    notas: ""
+
+  - id: "INV-002"
+    nombre: "Rosa Piedra"
+    relacion: "Familia novio"
+    grupo: "Familia Piedra"
+    telefono: "+593 9X XXX XXXX"
+    mesa: 1
+    admision: 1
+    confirmado: false
+    notas: ""
+
+  # ── FAMILIA ALCIVAR ─────────────────────────────
+  - id: "INV-003"
+    nombre: "Pedro Alcivar"
+    relacion: "Familia novia"
+    grupo: "Familia Alcivar"
+    telefono: "+593 9X XXX XXXX"
+    mesa: 2
+    admision: 2
+    confirmado: false
+    notas: ""
+
+  - id: "INV-004"
+    nombre: "Lucía Alcivar"
+    relacion: "Familia novia"
+    grupo: "Familia Alcivar"
+    telefono: "+593 9X XXX XXXX"
+    mesa: 2
+    admision: 1
+    confirmado: false
+    notas: ""
+
+  # ── AMIGOS CERCANOS ─────────────────────────────
+  - id: "INV-005"
+    nombre: "Andrés Vásquez"
+    relacion: "Amigo novio"
+    grupo: "Amigos"
+    telefono: "+593 9X XXX XXXX"
+    mesa: 3
+    admision: 2
+    confirmado: false
+    notas: "Padrino"
+
+  - id: "INV-006"
+    nombre: "Daniela Mora"
+    relacion: "Amiga novia"
+    grupo: "Amigos"
+    telefono: "+593 9X XXX XXXX"
+    mesa: 3
+    admision: 1
+    confirmado: false
+    notas: "Madrina"
+
+  - id: "INV-007"
+    nombre: "Miguel Torres"
+    relacion: "Amigo novio"
+    grupo: "Amigos"
+    telefono: "+593 9X XXX XXXX"
+    mesa: 4
+    admision: 2
+    confirmado: false
+    notas: ""
+
+  - id: "INV-008"
+    nombre: "Valeria Loor"
+    relacion: "Amiga novia"
+    grupo: "Amigos"
+    telefono: "+593 9X XXX XXXX"
+    mesa: 4
+    admision: 1
+    confirmado: false
+    notas: ""
+
+  # ── TRABAJO / COLEGAS ───────────────────────────
+  - id: "INV-009"
+    nombre: "Santiago Reyes"
+    relacion: "Colega"
+    grupo: "Trabajo"
+    telefono: "+593 9X XXX XXXX"
+    mesa: 5
+    admision: 2
+    confirmado: false
+    notas: ""
+
+  - id: "INV-010"
+    nombre: "Camila Intriago"
+    relacion: "Colega"
+    grupo: "Trabajo"
+    telefono: "+593 9X XXX XXXX"
+    mesa: 5
+    admision: 1
+    confirmado: false
+    notas: ""
