@@ -1,0 +1,9 @@
+Options -Indexes
+DirectoryIndex index.html
+
+RewriteEngine On
+RewriteBase /
+
+# Servir siempre index.html para cualquier ruta que no sea un archivo real
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.html [L]

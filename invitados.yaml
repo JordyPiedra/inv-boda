@@ -6,8 +6,8 @@ boda:
 invitados:
 
   # ── FAMILIA PIEDRA ──────────────────────────────
-  - id: "INV-001"
-    nombre: "Carlos Piedra"
+  - id: "INVJT"
+    nombre: "Jose Tandazo & "
     relacion: "Familia novio"
     grupo: "Familia Piedra"
     telefono: "+593 9X XXX XXXX"
@@ -16,19 +16,19 @@ invitados:
     confirmado: false
     notas: ""
 
-  - id: "INV-002"
-    nombre: "Rosa Piedra"
+  - id: "INVEEUU"
+    nombre: "Josefina & Francisco & Anahí"
     relacion: "Familia novio"
     grupo: "Familia Piedra"
     telefono: "+593 9X XXX XXXX"
     mesa: 1
-    admision: 1
+    admision: 3
     confirmado: false
     notas: ""
 
   # ── FAMILIA ALCIVAR ─────────────────────────────
-  - id: "INV-003"
-    nombre: "Pedro Alcivar"
+  - id: "INVPA"
+    nombre: "Byron & Belén "
     relacion: "Familia novia"
     grupo: "Familia Alcivar"
     telefono: "+593 9X XXX XXXX"
@@ -37,15 +37,27 @@ invitados:
     confirmado: false
     notas: ""
 
-  - id: "INV-004"
-    nombre: "Lucía Alcivar"
+  - id: "INVLOJAST"
+    nombre: "Santiago & "
     relacion: "Familia novia"
     grupo: "Familia Alcivar"
     telefono: "+593 9X XXX XXXX"
     mesa: 2
-    admision: 1
+    admision: 2
     confirmado: false
     notas: ""
+
+  - id: "INVLOJADA"
+    nombre: "Daniela Tandazo"
+    relacion: "Familia novia"
+    grupo: "Familia Alcivar"
+    telefono: "+593 9X XXX XXXX"
+    mesa: 2
+    admision: 2
+    confirmado: false
+    notas: ""
+
+    
 
   # ── AMIGOS CERCANOS ─────────────────────────────
   - id: "INV-005"
