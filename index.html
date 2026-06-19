@@ -580,6 +580,63 @@
       border-color: rgba(42,82,152,.5);
     }
 
+    /* ─── REGALO / TRANSFERENCIA ─── */
+    .gift-section { background: var(--white); }
+    .gift-icon {
+      width: 44px; height: 44px;
+      margin: 0 auto 20px;
+      color: var(--gold-light);
+      opacity: .7;
+    }
+    .gift-card {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      margin-top: 32px;
+      padding: 28px 40px;
+      border: 1px solid rgba(42,82,152,.12);
+      background: var(--cream);
+      position: relative;
+    }
+    .gift-bank-label {
+      font-size: 9px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold-light);
+    }
+    .gift-account {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 300;
+      letter-spacing: 4px;
+      color: var(--dark);
+    }
+    .gift-account-meta {
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--mid);
+      text-transform: uppercase;
+      opacity: .75;
+    }
+    .gift-copy-btn {
+      margin-top: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 16px;
+      border: 1px solid rgba(42,82,152,.2);
+      background: none;
+      cursor: pointer;
+      font-size: 9px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      transition: background .2s, border-color .2s;
+    }
+    .gift-copy-btn:hover { background: rgba(42,82,152,.05); border-color: rgba(42,82,152,.4); }
+    .gift-copy-btn.copied { color: #2d7a4f; border-color: rgba(45,122,79,.3); }
+
     /* ─── FOOTER ─── */
     footer {
       background: var(--dark);
@@ -981,6 +1038,38 @@
   </div>
 </div>
 
+<!-- ══ REGALO ══ -->
+<div class="gift-section">
+  <div class="section section-sm">
+    <svg class="gift-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" data-reveal="scale">
+      <polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/>
+      <line x1="12" y1="22" x2="12" y2="7"/>
+      <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/>
+      <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/>
+    </svg>
+
+    <span class="label" data-reveal="up">✦ un pequeño detalle</span>
+    <h2 class="display" style="font-size: clamp(26px, 4.5vw, 42px);" data-reveal="up" data-delay="1">
+      Tu presencia es<br/><em>nuestro mayor regalo</em>
+    </h2>
+    <div class="rule" data-reveal="scale" data-delay="2"></div>
+    <p class="body-text" style="font-size:14px;" data-reveal="up" data-delay="3">
+      Si de tu corazón nace el deseo de celebrar con un detalle,<br/>
+      aquí te dejamos cómo hacerlo con todo nuestro amor.
+    </p>
+
+    <div class="gift-card" data-reveal="up" data-delay="4">
+      <span class="gift-bank-label">Banco Pichincha · Cuenta de Ahorros</span>
+      <span class="gift-account" id="accountNumber">2202631274</span>
+      <span class="gift-account-meta">Jordy Piedra</span>
+      <button class="gift-copy-btn" id="copyBtn" onclick="copyAccount()">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        Copiar número
+      </button>
+    </div>
+  </div>
+</div>
+
 <!-- ══ FOOTER ══ -->
 <footer>
   <p class="footer-names" data-reveal="up">Jordy <span>&</span> Merly</p>
@@ -1176,6 +1265,21 @@
 
   spotifyBtn.addEventListener('click', toggleSpotify);
   if (heroPlayBtn) heroPlayBtn.addEventListener('click', toggleSpotify);
+
+  /* ── Copiar número de cuenta ── */
+  function copyAccount() {
+    const num = document.getElementById('accountNumber').textContent.trim();
+    const btn = document.getElementById('copyBtn');
+    navigator.clipboard.writeText(num).then(() => {
+      btn.classList.add('copied');
+      btn.innerHTML = `<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> ¡Copiado!`;
+      setTimeout(() => {
+        btn.classList.remove('copied');
+        btn.innerHTML = `<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar número`;
+      }, 2500);
+    });
+  }
+  window.copyAccount = copyAccount;
 </script>
 
 
