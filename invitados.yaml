@@ -7,7 +7,7 @@ invitados:
 
   # ── FAMILIA PIEDRA ──────────────────────────────
   - id: "INVJT"
-    nombre: "Jose Tandazo & "
+    nombre: "Jose Tandazo & Luz Rodriguez"
     relacion: "Familia novio"
     grupo: "Familia Piedra"
     telefono: "+593 9X XXX XXXX"
@@ -38,7 +38,7 @@ invitados:
     notas: ""
 
   - id: "INVLOJAST"
-    nombre: "Santiago & "
+    nombre: "Santiago & Diana"
     relacion: "Familia novia"
     grupo: "Familia Alcivar"
     telefono: "+593 9X XXX XXXX"
