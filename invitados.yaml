@@ -70,49 +70,69 @@ invitados:
     confirmado: false
     notas: "Padrino"
 
-  - id: "INV-006"
-    nombre: "Daniela Mora"
+  - id: "INVNABO"
+    nombre: "Narcisa & Bolivar"
     relacion: "Amiga novia"
     grupo: "Amigos"
     telefono: "+593 9X XXX XXXX"
     mesa: 3
-    admision: 1
+    admision: 2
     confirmado: false
     notas: "Madrina"
 
-  - id: "INV-007"
-    nombre: "Miguel Torres"
+  - id: "INV-JTORR"
+    nombre: "Jazmin Torres"
     relacion: "Amigo novio"
     grupo: "Amigos"
     telefono: "+593 9X XXX XXXX"
     mesa: 4
-    admision: 2
-    confirmado: false
-    notas: ""
-
-  - id: "INV-008"
-    nombre: "Valeria Loor"
-    relacion: "Amiga novia"
-    grupo: "Amigos"
-    telefono: "+593 9X XXX XXXX"
-    mesa: 4
     admision: 1
     confirmado: false
     notas: ""
 
-  # ── TRABAJO / COLEGAS ───────────────────────────
-  - id: "INV-009"
-    nombre: "Santiago Reyes"
-    relacion: "Colega"
-    grupo: "Trabajo"
+  - id: "INV-SAMI"
+    nombre: "Sandra & Miguel"
+    relacion: "Amiga novia"
+    grupo: "Amigos"
     telefono: "+593 9X XXX XXXX"
-    mesa: 5
+    mesa: 4
     admision: 2
     confirmado: false
     notas: ""
 
-  - id: "INV-010"
-    nombre: "Camila Intriago"
+  # ── TRABAJO / COLEGAS ───────────────────────────
+  - id: "INV-YAAL"
+    nombre: "Yaritza Alcivar"
+    relacion: "Colega"
+    grupo: "Trabajo"
+    telefono: "+593 9X XXX XXXX"
+    mesa: 5
+    admision: 1
+    confirmado: false
+    notas: ""
+
+  - id: "INV-GIZA"
+    nombre: "Guillermina Zambrano"
+    relacion: "Colega"
+    grupo: "Trabajo"
+    telefono: "+593 9X XXX XXXX"
+    mesa: 5
+    admision: 1
+    confirmado: false
+    notas: ""
+
+  - id: "INV-MELA"
+    nombre: "Melany Calle"
+    relacion: "Colega"
+    grupo: "Trabajo"
+    telefono: "+593 9X XXX XXXX"
+    mesa: 5
+    admision: 1
+    confirmado: false
+    notas: ""
+    
+  - id: "INV-MELA"
+    nombre: "Melany Calle"
     relacion: "Colega"
     grupo: "Trabajo"
     telefono: "+593 9X XXX XXXX"
