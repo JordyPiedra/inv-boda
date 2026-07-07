@@ -130,9 +130,9 @@ invitados:
     admision: 1
     confirmado: false
     notas: ""
-    
-  - id: "INV-MELA"
-    nombre: "Melany Calle"
+
+  - id: "INV-JERECA"
+    nombre: "Jeremy Camacho"
     relacion: "Colega"
     grupo: "Trabajo"
     telefono: "+593 9X XXX XXXX"
@@ -140,3 +140,5 @@ invitados:
     admision: 1
     confirmado: false
     notas: ""
+
+  
