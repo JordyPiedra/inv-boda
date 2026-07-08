@@ -141,4 +141,22 @@ invitados:
     confirmado: false
     notas: ""
 
-  
+  - id: "INV-NEMA"
+    nombre: "Nestor y Margareth"
+    relacion: "Colega"
+    grupo: "Trabajo"
+    telefono: "+593 9X XXX XXXX"
+    mesa: 5
+    admision: 2
+    confirmado: false
+    notas: ""
+
+  - id: "INV-FER"
+    nombre: "Fermando y Janina"
+    relacion: "Colega"
+    grupo: "Trabajo"
+    telefono: "+593 9X XXX XXXX"
+    mesa: 5
+    admision: 2
+    confirmado: false
+    notas: ""
