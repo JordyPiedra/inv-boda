@@ -491,3 +491,63 @@ invitados:
     admision: 2
     confirmado: false
     notas: ""
+
+  - id: "INV-CELIA"
+    nombre: "Celia Alcivar"
+    relacion: ""
+    grupo: "Nuevos"
+    telefono: "+593 9X XXX XXXX"
+    mesa: 0
+    admision: 1
+    confirmado: false
+    notas: ""
+
+  - id: "INV-FRANALCV"
+    nombre: "Francisco Alcivar"
+    relacion: ""
+    grupo: "Nuevos"
+    telefono: "+593 9X XXX XXXX"
+    mesa: 0
+    admision: 1
+    confirmado: false
+    notas: ""
+
+  - id: "INV-VINIRIOF"
+    nombre: "Vinicio Riofrio"
+    relacion: ""
+    grupo: "Nuevos"
+    telefono: "+593 9X XXX XXXX"
+    mesa: 0
+    admision: 1
+    confirmado: false
+    notas: ""
+
+  - id: "INV-VINIRIOF"
+    nombre: "Vinicio Riofrio"
+    relacion: ""
+    grupo: "Nuevos"
+    telefono: "+593 9X XXX XXXX"
+    mesa: 0
+    admision: 1
+    confirmado: false
+    notas: ""
+
+  - id: "INV-HOLGER"
+    nombre: "Holger & Silvia"
+    relacion: ""
+    grupo: "Nuevos"
+    telefono: "+593 9X XXX XXXX"
+    mesa: 0
+    admision: 2
+    confirmado: false
+    notas: ""
+
+  - id: "INV-MARINPIED"
+    nombre: "Marina & Jaime"
+    relacion: ""
+    grupo: "Nuevos"
+    telefono: "+593 9X XXX XXXX"
+    mesa: 0
+    admision: 2
+    confirmado: false
+    notas: ""
