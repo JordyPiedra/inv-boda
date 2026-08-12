@@ -542,6 +542,16 @@ invitados:
     confirmado: false
     notas: ""
 
+  - id: "INV-MARBED"
+    nombre: "Marlon Bedon"
+    relacion: ""
+    grupo: "Nuevos"
+    telefono: "+593 9X XXX XXXX"
+    mesa: 0
+    admision: 2
+    confirmado: false
+    notas: ""
+  
   - id: "INV-MARINPIED"
     nombre: "Marina & Jaime"
     relacion: ""
