@@ -278,7 +278,7 @@ invitados:
     grupo: "Nuevos"
     telefono: "+593 9X XXX XXXX"
     mesa: 0
-    admision: 2
+    admision: 4
     confirmado: false
     notas: ""
 
@@ -318,7 +318,7 @@ invitados:
     grupo: "Nuevos"
     telefono: "+593 9X XXX XXXX"
     mesa: 0
-    admision: 2
+    admision: 1
     confirmado: false
     notas: ""
 
@@ -559,5 +559,255 @@ invitados:
     telefono: "+593 9X XXX XXXX"
     mesa: 0
     admision: 2
+    confirmado: false
+    notas: ""
+
+  - id: "INV-AMALC"
+    nombre: "Amado Alcivar"
+    relacion: ""
+    grupo: "Nuevos"
+    telefono: "+593 9X XXX XXXX"
+    mesa: 0
+    admision: 1
+    confirmado: false
+    notas: ""
+
+  - id: "INV-MARJE"
+    nombre: "Maria Z y Jeremy A"
+    relacion: ""
+    grupo: "Nuevos"
+    telefono: "+593 9X XXX XXXX"
+    mesa: 0
+    admision: 2
+    confirmado: false
+    notas: ""
+
+  - id: "INV-MOALC"
+    nombre: "Familia Moreno Alcivar"
+    relacion: ""
+    grupo: "Nuevos"
+    telefono: "+593 9X XXX XXXX"
+    mesa: 0
+    admision: 3
+    confirmado: false
+    notas: ""
+
+  - id: "INV-GARZA"
+    nombre: "Familia Garzon Zambrano"
+    relacion: ""
+    grupo: "Nuevos"
+    telefono: "+593 9X XXX XXXX"
+    mesa: 0
+    admision: 3
+    confirmado: false
+    notas: ""
+
+  - id: "INV-DARPI"
+    nombre: "Darwin Pilicita"
+    relacion: ""
+    grupo: "Nuevos"
+    telefono: "+593 9X XXX XXXX"
+    mesa: 0
+    admision: 2
+    confirmado: false
+    notas: ""
+
+  - id: "INV-MELMU"
+    nombre: "Melissa Mueses"
+    relacion: ""
+    grupo: "Nuevos"
+    telefono: "+593 9X XXX XXXX"
+    mesa: 0
+    admision: 2
+    confirmado: false
+    notas: ""
+
+  - id: "INV-MAED"
+    nombre: "Madelyn y Eduardo"
+    relacion: ""
+    grupo: "Nuevos"
+    telefono: "+593 9X XXX XXXX"
+    mesa: 0
+    admision: 2
+    confirmado: false
+    notas: ""
+
+  - id: "INV-SELBE"
+    nombre: "Selena Bedon"
+    relacion: ""
+    grupo: "Nuevos"
+    telefono: "+593 9X XXX XXXX"
+    mesa: 0
+    admision: 2
+    confirmado: false
+    notas: ""
+
+  - id: "INV-JENDA"
+    nombre: "Jenny y Dario"
+    relacion: ""
+    grupo: "Nuevos"
+    telefono: "+593 9X XXX XXXX"
+    mesa: 0
+    admision: 2
+    confirmado: false
+    notas: ""
+
+  - id: "INV-VICVE"
+    nombre: "Victoria Veintimilla"
+    relacion: ""
+    grupo: "Nuevos"
+    telefono: "+593 9X XXX XXXX"
+    mesa: 0
+    admision: 1
+    confirmado: false
+    notas: ""
+
+  - id: "INV-ANTAD"
+    nombre: "Antonella y Adrian"
+    relacion: ""
+    grupo: "Nuevos"
+    telefono: "+593 9X XXX XXXX"
+    mesa: 0
+    admision: 2
+    confirmado: false
+    notas: ""
+
+  - id: "INV-KEVPA"
+    nombre: "Kevin Palma"
+    relacion: ""
+    grupo: "Nuevos"
+    telefono: "+593 9X XXX XXXX"
+    mesa: 0
+    admision: 2
+    confirmado: false
+    notas: ""
+
+  - id: "INV-KEVRE"
+    nombre: "Kevin Reyes"
+    relacion: ""
+    grupo: "Nuevos"
+    telefono: "+593 9X XXX XXXX"
+    mesa: 0
+    admision: 1
+    confirmado: false
+    notas: ""
+
+  - id: "INV-GALPI"
+    nombre: "Familia Gallardo Pineda"
+    relacion: ""
+    grupo: "Nuevos"
+    telefono: "+593 9X XXX XXXX"
+    mesa: 0
+    admision: 2
+    confirmado: false
+    notas: ""
+
+  - id: "INV-DREIR"
+    nombre: "Dreide y Ricardo"
+    relacion: ""
+    grupo: "Nuevos"
+    telefono: "+593 9X XXX XXXX"
+    mesa: 0
+    admision: 2
+    confirmado: false
+    notas: ""
+
+  - id: "INV-JONAN"
+    nombre: "Jonthan y Angie"
+    relacion: ""
+    grupo: "Nuevos"
+    telefono: "+593 9X XXX XXXX"
+    mesa: 0
+    admision: 2
+    confirmado: false
+    notas: ""
+
+  - id: "INV-STEBE"
+    nombre: "Steban y Belen"
+    relacion: ""
+    grupo: "Nuevos"
+    telefono: "+593 9X XXX XXXX"
+    mesa: 0
+    admision: 2
+    confirmado: false
+    notas: ""
+
+  - id: "INV-LOPPL"
+    nombre: "Familia Lopez Plaza"
+    relacion: ""
+    grupo: "Nuevos"
+    telefono: "+593 9X XXX XXXX"
+    mesa: 0
+    admision: 2
+    confirmado: false
+    notas: ""
+
+  - id: "INV-TAYLCO"
+    nombre: "Taylor Cobeña"
+    relacion: ""
+    grupo: "Nuevos"
+    telefono: "+593 9X XXX XXXX"
+    mesa: 0
+    admision: 1
+    confirmado: false
+    notas: ""
+
+  - id: "INV-MONCA"
+    nombre: "Monica Carlosama"
+    relacion: ""
+    grupo: "Nuevos"
+    telefono: "+593 9X XXX XXXX"
+    mesa: 0
+    admision: 1
+    confirmado: false
+    notas: ""
+
+  - id: "INV-MAYGA"
+    nombre: "Mayra Garofalo"
+    relacion: ""
+    grupo: "Nuevos"
+    telefono: "+593 9X XXX XXXX"
+    mesa: 0
+    admision: 1
+    confirmado: false
+    notas: ""
+
+  - id: "INV-PIEDLOP"
+    nombre: "Familia Piedra Lopez"
+    relacion: ""
+    grupo: "Nuevos"
+    telefono: "+593 9X XXX XXXX"
+    mesa: 0
+    admision: 4
+    confirmado: false
+    notas: ""
+
+  - id: "INV-BYRSA"
+    nombre: "Byron Sanchez"
+    relacion: ""
+    grupo: "Nuevos"
+    telefono: "+593 9X XXX XXXX"
+    mesa: 0
+    admision: 0
+    confirmado: false
+    notas: ""
+
+  - id: "INV-CABRIE"
+    nombre: "Familia Cabezas Riera"
+    relacion: ""
+    grupo: "Nuevos"
+    telefono: "+593 9X XXX XXXX"
+    mesa: 0
+    admision: 4
+    confirmado: false
+    notas: ""
+
+  - id: "INV-SUSMO"
+    nombre: "Susana Mora"
+    relacion: ""
+    grupo: "Nuevos"
+    telefono: "+593 9X XXX XXXX"
+    mesa: 0
+    admision: 1
     confirmado: false
     notas: ""
